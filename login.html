@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="css/login.css">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Lato', sans-serif;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .background-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('images/tyh.png') no-repeat center center/cover;
+    }
+
+    .container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    .initial-screen, .login-form {
+        background-color: none;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        text-align: center;
+        width: 80%;
+        max-width: 300px;
+        display: none;
+    }
+
+    .login-form.active {
+        display: block;
+        background-color: #fde4f2;
+    }
+
+    .initial-screen.active, .login-form.active {
+        display: block;
+        background-color: none;
+    }
+
+    h1 {
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+        text-align: left;
+    }
+
+    label {
+        font-weight: bold;
+        color: #555;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        outline: none;
+        font-size: 14px;
+    }
+
+    button.btn {
+        width: 100%;
+        background-color: #c63ba6;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+        margin-top: 20px; /* Adjusted value */
+    }
+
+    button.btn:hover {
+        background-color: #8e0b70;
+    }
+
+    .error-message {
+        color: red;
+        margin-top: 10px;
+    }
+
+    .initial-screen .btn {
+        width: auto;
+        padding: 10px 20px;
+    }
+  </style>
+</head>
+
+<body>
+<div class="background-image"></div>
+<div class="container">
+  <div class="initial-screen active">
+    <button class="btn" onclick="showLoginForm()">Login</button>
+  </div>
+  <form id="login-form" class="login-form" action="index.html" method="post">
+    <h1>Login</h1>
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+    </div>
+    <button type="submit" class="btn">Login</button>
+    <p class="error-message" style="display: none;">Incorrect username or password. Please try again.</p>
+  </form>
+</div>
+
+<script>
+  function showLoginForm() {
+      document.querySelector('.initial-screen').classList.remove('active');
+      document.querySelector('.login-form').classList.add('active');
+  }
+</script>
+</body>
+
+</html>
